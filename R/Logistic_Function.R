@@ -1,4 +1,5 @@
 #' Logistic Function
+#'
 #' Computes the logistic function, which is an S-shaped curve.
 #' The logistic function is commonly used in logistic regression and
 #' returns values between 0 and 1.

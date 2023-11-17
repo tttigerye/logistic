@@ -2,10 +2,7 @@
 % Please edit documentation in R/Logistic_Function.R
 \name{logistic_function}
 \alias{logistic_function}
-\title{Logistic Function
-Computes the logistic function, which is an S-shaped curve.
-The logistic function is commonly used in logistic regression and
-returns values between 0 and 1.}
+\title{Logistic Function}
 \usage{
 logistic_function(z)
 }
@@ -16,7 +13,6 @@ logistic_function(z)
 Computed logistic function values.
 }
 \description{
-Logistic Function
 Computes the logistic function, which is an S-shaped curve.
 The logistic function is commonly used in logistic regression and
 returns values between 0 and 1.
