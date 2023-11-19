@@ -26,7 +26,8 @@ hello(whateveryouwanttosay)
 
 Secondly, I add some of my useful function about logistic regression.
 
-we use the logistic function: f(z) = \frac{1}{1 + e^{-z}}
+we use the logistic function: f(z) = $\frac{1}{1 + e^{-z}}$
+
 ```{r}
 logistic_function(2)
 ```
