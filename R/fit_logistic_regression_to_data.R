@@ -12,7 +12,7 @@
 #' @examples
 #' # 'Education' is a dataset with a binary response variable named 'response'
 #' # and the first four columns are predictor variables
-#' coefficients <- fit_logistic_regression_to_data(Education, "response", names(my_data)[1:4])
+#' coefficients <- fit_logistic_regression_to_data(Education, "response", names(Education)[1:4])
 #' print(coefficients)
 
 fit_logistic_regression_to_data <- function(data, response_var, predictor_vars) {
