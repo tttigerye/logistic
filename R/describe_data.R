@@ -37,5 +37,3 @@ describe_data <- function(data) {
 
   return(invisible())
 }
-#example
-describe_data(Education)
