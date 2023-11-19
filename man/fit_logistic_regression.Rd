@@ -24,7 +24,7 @@ Fits a logistic regression model using Gradient Descent.
 \examples{
 # Generate a synthetic dataset
 set.seed(123)
-n <- 100  # number of samples
+n <- 100
 predictor variables
 x1 <- rnorm(n)
 x2 <- rnorm(n)
