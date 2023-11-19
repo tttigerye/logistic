@@ -15,3 +15,19 @@ Education <- data.frame(
 head(Education)
 
 usethis::use_data(Education, compress = 'xz')
+
+# Creating a synthetic EPL season score dataset with real team names
+EPL <- data.frame(
+  team = c("Manchester United", "Liverpool", "Manchester City", "Chelsea",
+           "Arsenal", "Tottenham", "Everton", "Leeds United",
+           "Leicester City", "Wolverhampton", "Southampton", "Newcastle United",
+           "West Ham United", "Aston Villa", "Brighton", "Burnley",
+           "Crystal Palace", "Fulham", "Norwich City", "Watford"),
+  points = sample(30:90, 20, replace = TRUE),  # Random points between 30 and 90
+  goals_scored = sample(20:70, 20, replace = TRUE),  # Random goals scored between 20 and 70
+  goals_conceded = sample(25:65, 20, replace = TRUE),  # Random goals conceded between 25 and 65
+  top_half = as.factor(ifelse(rank(-sample(30:90, 20, replace = TRUE)) <= 10, 1, 0))  # Top 10 teams as top half
+)
+
+head(EPL)
+usethis::use_data(EPL, compress = 'xz')
