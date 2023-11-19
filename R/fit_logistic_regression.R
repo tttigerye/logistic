@@ -16,7 +16,7 @@
 #'# predictor variables
 #' x1 <- rnorm(n)
 #' x2 <- rnorm(n)
-#' X <- cbind(x1, x2)
+#' x <- cbind(x1, x2)
 #' beta0 <- 0.5  # Intercept
 #' beta1 <- 1.5  # Coefficient for x1
 #' beta2 <- -1   # Coefficient for x2
@@ -26,7 +26,7 @@
 #' y <- rbinom(n, 1, p)
 
 #' # Fit the logistic regression model
-#' coefficients <- fit_logistic_regression(X, y)
+#' coefficients <- fit_logistic_regression(x, y)
 #' print(coefficients)
 #' #           [,1]
 #' #[1,]  0.1782793

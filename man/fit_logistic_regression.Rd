@@ -28,7 +28,7 @@ n <- 100
 # predictor variables
 x1 <- rnorm(n)
 x2 <- rnorm(n)
-X <- cbind(x1, x2)
+x <- cbind(x1, x2)
 beta0 <- 0.5  # Intercept
 beta1 <- 1.5  # Coefficient for x1
 beta2 <- -1   # Coefficient for x2
@@ -37,7 +37,7 @@ logit_p <- beta0 + beta1 * x1 + beta2 * x2
 p <- 1 / (1 + exp(-logit_p))
 y <- rbinom(n, 1, p)
 # Fit the logistic regression model
-coefficients <- fit_logistic_regression(X, y)
+coefficients <- fit_logistic_regression(x, y)
 print(coefficients)
 #           [,1]
 #[1,]  0.1782793
