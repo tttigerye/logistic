@@ -22,9 +22,9 @@ the size of the majority class. This is typically used to handle imbalanced data
 }
 \examples{
 # 'Education' is a dataset with an imbalanced binary target column named 'response'
-length(Education)
+
 balanced_data <- upsampling(Education, "response")
 head(balanced_data)
-length(balanced_data)
+
 # Now 'balanced_data' will have an equal number of instances for both classes in 'response' column
 }
