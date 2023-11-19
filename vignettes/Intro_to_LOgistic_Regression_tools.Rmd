@@ -13,6 +13,7 @@ knitr::opts_chunk$set(
   comment = "#>"
 ) 
 ```
+
 This vignette helps user to understand what this R package does. This helps those familiar with base R understand better what logistic regression does, and shows users how you might need before apply logistyic regression. We'll start with a rough overview of the major functions. This is introduction to my fantastic package.
 
 # Overview
@@ -24,16 +25,20 @@ library(logistic)
 ### hello function
 
 I generally start with saying 'hello' in my package.
+
 ```{r}
 hello(whateveryouwanttosay)
 ```
+
 ### 1. Describe Data Function
+
 I developed this function and included it in my package to address a common challenge when applying logistic regression to our databases. Often, we may not have sufficient time to conduct a thorough Exploratory Data Analysis (EDA). Recognizing this, I believe a function that quickly generates a comprehensive overview of the dataset could be highly beneficial. This tool is designed to provide essential insights at a glance, streamlining the initial analysis phase and ensuring more informed decision-making, even when time constraints limit detailed EDA.
 
 ```{r}
 head(EPL)
 describe_data(EPL)
 ```
+
 As we can see, This function generate 'structure of the data', 'summary statistics', 'first few rows of data' and some basic information of the dataset.
 
 ### 2. Logistic Function
@@ -45,6 +50,7 @@ we use the logistic function: f(z) = $\frac{1}{1 + e^{-z}}$
 ```{r}
 logistic_function(2)
 ```
+
 ```{r}
 logistic_function(4)
 ```
@@ -52,7 +58,9 @@ logistic_function(4)
 Basically this function just calculate the logistic function by formula.
 
 ### 3. Upsampling Function
+
 Using upsampling before applying logistic regression is often necessary in scenarios where the dataset is imbalanced, meaning that the classes are not represented equally. In such cases, the minority class (the class with fewer instances) can be underrepresented, leading to several issues.
+
 ```{r}
 head(PRESS)
 balanced_data = upsampling(PRESS, "chole")
@@ -62,9 +70,11 @@ balanced_data = upsampling(PRESS, "chole")
 table(PRESS$chole)
 table(balanced_data$chole)
 ```
+
 Now after applying this function, the data is comparably balanced.
 
 ### 4. Standardize Function
+
 Standardizing data before applying logistic regression is important because it ensures that each feature contributes equally to the model, preventing bias towards variables with larger scales. It also helps optimization algorithms used in logistic regression to converge more quickly and makes the interpretation of coefficients easier, especially when comparing the importance of different variables. Additionally, when using regularization techniques, standardization is crucial to avoid incorrect penalization of variables. It also prevents numerical instability in the model. However, this step might not be necessary if the variables are already on a similar scale or are categorical.
 
 ```{r}
@@ -73,7 +83,7 @@ standardized_PRESS <- standardize(PRESS, columns_to_standardize)
 head(standardized_PRESS)
 ```
 
-### 5. Fit logistic regression 
+### 5. Fit logistic regression
 
 Logistic regression is a widely used statistical method for predicting binary outcomes. In this section, I'll implement a basic logistic regression model to a sample dataset.
 
@@ -81,23 +91,24 @@ Logistic regression is a widely used statistical method for predicting binary ou
 
 For here, I define a function `fit_logistic_regression` to fit a logistic regression model. The function takes four arguments:
 
-- `x`: The predictor variables (features).
-- `y`: The response variable (binary outcome).
-- `learning_rate`: The step size for gradient descent (default is 0.01).
-- `max_iter`: The maximum number of iterations for the gradient descent (default is 1000).
+-   `x`: The predictor variables (features).
+-   `y`: The response variable (binary outcome).
+-   `learning_rate`: The step size for gradient descent (default is 0.01).
+-   `max_iter`: The maximum number of iterations for the gradient descent (default is 1000).
 
 ##### Function Breakdown
 
-1. **Data Preparation**: The function begins by adding an intercept term to the predictor variables `x`. This is achieved by binding a column of ones to `x`.
+1.  **Data Preparation**: The function begins by adding an intercept term to the predictor variables `x`. This is achieved by binding a column of ones to `x`.
 
-2. **Initialize Coefficients**: The coefficients are initialized to zero.
+2.  **Initialize Coefficients**: The coefficients are initialized to zero.
 
-3. **Gradient Descent Loop**: 
-   - For each iteration, the function calculates the predicted probabilities using the logistic function.
-   - The gradient of the cost function with respect to the coefficients is computed.
-   - The coefficients are updated by moving in the opposite direction of the gradient.
+3.  **Gradient Descent Loop**:
 
-4. **Return Value**: The function returns the final coefficients after completing the iterations.
+    -   For each iteration, the function calculates the predicted probabilities using the logistic function.
+    -   The gradient of the cost function with respect to the coefficients is computed.
+    -   The coefficients are updated by moving in the opposite direction of the gradient.
+
+4.  **Return Value**: The function returns the final coefficients after completing the iterations.
 
 ##### Example Usage
 
@@ -115,36 +126,33 @@ model_coefficients <- fit_logistic_regression(x, y)
 print(model_coefficients)
 ```
 
-
 ### 6. fit logistic regression to data
+
 #### Function Overview
 
 The `fit_logistic_regression_to_data` function is designed to facilitate the fitting of a logistic regression model to a dataset in R. It automates the data preparation and model fitting process, returning the model's coefficients. The function takes three arguments:
 
-- `data`: The dataset that you want to analyze.
-- `response_var`: response (dependent) variable.
-- `predictor_vars`: A vector of predictor(independent) variable names.
+-   `data`: The dataset that you want to analyze.
+-   `response_var`: response (dependent) variable.
+-   `predictor_vars`: A vector of predictor(independent) variable names.
 
 ##### Function Breakdown
 
 The function operates in several steps:
 
-1. **Convert the Response Variable**: The response variable is converted to a numeric format, as logistic regression requires a numeric response variable.
+1.  **Convert the Response Variable**: The response variable is converted to a numeric format, as logistic regression requires a numeric response variable.
 
-    y <- as.numeric(data[[response_var]])
-    
-2. **Prepare the Predictor Variables**: The predictor variables are converted into a matrix. This format is efficient for handling multiple predictors in logistic regression functions in R.
+    y \<- as.numeric(data[[response_var]])
 
+2.  **Prepare the Predictor Variables**: The predictor variables are converted into a matrix. This format is efficient for handling multiple predictors in logistic regression functions in R.
 
-    x <- as.matrix(data[predictor_vars])
+    x \<- as.matrix(data[predictor_vars])
 
-3. **Fit the Logistic Regression Model**: The logistic regression model is fitted using the prepared data, returning the model coefficients.
+3.  **Fit the Logistic Regression Model**: The logistic regression model is fitted using the prepared data, returning the model coefficients.
 
+    coefficients \<- fit_logistic_regression(x, y)
 
-    coefficients <- fit_logistic_regression(x, y)
-
-4. **Return the Coefficients**: Finally, the function returns the coefficients from the fitted logistic regression model.
-
+4.  **Return the Coefficients**: Finally, the function returns the coefficients from the fitted logistic regression model.
 
     return(coefficients)
 
