@@ -11,17 +11,23 @@
 #'
 #' #' @examples
 #' # Generate a synthetic dataset
-#' set.seed(123)  # for reproducibility
+#' set.seed(123)
 #' n <- 100  # number of samples
-#' x <- matrix(rnorm(n * 2), ncol = 2)  # predictor variables
-#' beta <- c(-1, 0.5, 1)  # true coefficients
-#' z <- cbind(1, x) %*% beta  # linear predictors
-#' pr <- 1 / (1 + exp(-z))  # logistic function
-#' y <- rbinom(n, 1, pr)  # response variable
+#' predictor variables
+#' x <- matrix(rnorm(n * 2), ncol = 2)
+#' coefficients
+#' beta <- c(-1, 0.5, 1)
+#' predictors
+#' z <- cbind(1, x) %*% beta
+#' logistic function which can be generate by my function logistic function as well
+#' pr <- 1 / (1 + exp(-z))
+#' response variable
+#' y <- rbinom(n, 1, pr)
 
 #' # Fit the logistic regression model
 #' coefficients <- fit_logistic_regression(x, y)
 #' print(coefficients)
+#'
 fit_logistic_regression <- function(x, y, learning_rate = 0.01, max_iter = 1000) {
   x <- as.matrix(cbind(1, x)) # Adding intercept
   coefficients <- rep(0, ncol(x))
