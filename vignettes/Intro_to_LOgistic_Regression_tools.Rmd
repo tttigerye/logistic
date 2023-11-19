@@ -11,9 +11,23 @@ vignette: >
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
-)
+) 
 ```
 
 ```{r setup}
 library(logistic)
 ```
+This is introduction to my fantastic package.
+
+I generally start with saying 'hello' in my package.
+```{r}
+hello(whateveryouwanttosay)
+```
+
+Secondly, I add some of my useful function about logistic regression.
+
+we use the logistic function: f(z) = \frac{1}{1 + e^{-z}}
+```{r}
+logistic_function(2)
+```
+
