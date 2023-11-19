@@ -33,6 +33,37 @@ devtools::install_github("tttigerye/logistic")
 devtools::install_github("tttigerye/logistic", build_vignettes = T)
 ```
 
+## In-package data
+These dataset are generally for practice and demonstrate the function(s) in the R pack-
+age, and can run smoothly without error or warning. Feel free to run and test them with function in the package.
+``` r
+head(EPL)
+               team points goals_scored goals_conceded top_half
+1 Manchester United     87           30             61        0
+2         Liverpool     36           23             53        1
+3   Manchester City     63           59             30        1
+4           Chelsea     60           39             49        1
+5           Arsenal     47           30             50        0
+6         Tottenham     47           37             48        1
+head(Education)
+  GPA levelA  ED ACT response
+1 2.3    1.1 0.5 3.0        1
+2 1.5    0.7 0.6 2.5        0
+3 3.2    1.3 0.7 3.5        1
+4 2.1    1.2 0.4 2.8        0
+5 1.8    0.9 0.9 3.1        1
+6 2.4    1.5 0.3 2.9        0
+head(PRESS)
+       height     weight chole
+1 -0.56047565  2.1988103     0
+2 -0.23017749  1.3124130     0
+3  1.55870831 -0.2651451     0
+4  0.07050839  0.5431941     0
+5  0.12928774 -0.4143399     0
+6  1.71506499 -0.4762469     0
+
+``` 
+
 ## Usage
 ``` r
 library(logistic)
