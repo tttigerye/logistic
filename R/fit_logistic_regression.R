@@ -9,7 +9,7 @@
 #' @return Model coefficients.
 #' @export
 #'
-#' #' @examples
+#' @examples
 #' # Generate a synthetic dataset
 #' set.seed(123)
 #' n <- 100  # number of samples
