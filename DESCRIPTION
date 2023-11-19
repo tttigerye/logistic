@@ -3,7 +3,7 @@ Type: Package
 Title: Simplified Logistic Regression Analysis
 Version: 0.1.0
 Author: Jiayin Ye
-Maintainer: tigerye@umich.edu
+Maintainer: Tiger Ye <tigerye@umich.edu>
 Description: This package, LogisticRegToolkit, offers a streamlined approach to performing logistic regression analysis in R. 
     It provides a set of user-friendly functions to fit logistic regression models, make predictions, and evaluate model performance. 
     Unlike traditional implementations that rely on existing R functions, LogisticRegToolkit implements the underlying statistical 
