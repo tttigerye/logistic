@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # logistic
 
 ## Overview
@@ -21,3 +22,10 @@ provides a variety of two-table verbs, which you can learn about in
 If you are new to dplyr, the best place to start is the [data
 transformation chapter](https://r4ds.hadley.nz/data-transform) in R for
 Data Science.
+=======
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# Logistic 
+
+<!-- badges: start -->
+>>>>>>> 822d839c9823690885f1c6c9a38bbf41390a4505
