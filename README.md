@@ -17,13 +17,19 @@ of Logistic Regression, and generate basic analysis result:
 - `fit_logistic_regression()` Implements the logistic regression algorithm.
 - `fit_logistic_regression_to_data()` Fits a logistic regression model to a dataset.
 
-These all combine naturally with `group_by()` which allows you to
-perform any operation “by group”. You can learn more about them in
-`vignette("dplyr")`. As well as these single-table verbs, dplyr also
-provides a variety of two-table verbs, which you can learn about in
-`vignette("two-table")`.
+Each function is meticulously designed to cater to specific needs in the data analysis process, from initial exploration to complex modeling. They are particularly useful for tasks involving logistic regression, providing tools for data preparation, model fitting, and handling class imbalance, which are common challenges in binary classification problems.
 
-If you are new to dplyr, the best place to start is the [data
-transformation chapter](https://r4ds.hadley.nz/data-transform) in R for
-Data Science.
-=======
+If you are new to this function. spend some time to look through my R package.
+
+## Installation
+
+``` r
+# The easiest way to get logistic is to install from the Github, you might want to download 'devtools' package first:
+install.packages("devtools")
+
+#now we install the whole package via 'devtools' package
+devtools::install_github("tttigerye/logistic")
+
+# Alternatively, install with vignette available:
+devtools::install_github("tttigerye/logistic", build_vignettes = T)
+```
