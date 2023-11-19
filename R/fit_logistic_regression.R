@@ -28,10 +28,10 @@
 #' # Fit the logistic regression model
 #' coefficients <- fit_logistic_regression(x, y)
 #' print(coefficients)
-#'           [,1]
-#'[1,]  0.1782793
-#'[2,]  1.2036723
-#'[3,] -0.7532356
+#' #           [,1]
+#' #[1,]  0.1782793
+#' #[2,]  1.2036723
+#' #[3,] -0.7532356
 #'
 fit_logistic_regression <- function(x, y, learning_rate = 0.01, max_iter = 1000) {
   x <- as.matrix(cbind(1, x)) # Adding intercept
