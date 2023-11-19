@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 # Logistic 
@@ -33,3 +32,107 @@ devtools::install_github("tttigerye/logistic")
 # Alternatively, install with vignette available:
 devtools::install_github("tttigerye/logistic", build_vignettes = T)
 ```
+
+## Usage
+``` r
+library(logistic)
+head(PRESS)
+       height     weight chole
+1 -0.56047565  2.1988103     0
+2 -0.23017749  1.3124130     0
+3  1.55870831 -0.2651451     0
+4  0.07050839  0.5431941     0
+5  0.12928774 -0.4143399     0
+6  1.71506499 -0.4762469     0
+
+#generate the data information
+describe_data(PRESS)
+Structure of the Data:
+'data.frame':	200 obs. of  3 variables:
+ $ height: num  -0.5605 -0.2302 1.5587 0.0705 0.1293 ...
+ $ weight: num  2.199 1.312 -0.265 0.543 -0.414 ...
+ $ chole : Factor w/ 2 levels "0","1": 1 1 1 1 1 1 1 1 1 1 ...
+NULL
+
+Summary Statistics:
+     height             weight         chole  
+ Min.   :-2.30917   Min.   :-2.46590   0:150  
+ 1st Qu.:-0.62576   1st Qu.:-0.59077   1: 50  
+ Median :-0.05874   Median : 0.02283          
+ Mean   :-0.00857   Mean   : 0.04212          
+ 3rd Qu.: 0.56840   3rd Qu.: 0.71482          
+ Max.   : 3.24104   Max.   : 2.57146          
+
+First Few Rows of the Data:
+       height     weight chole
+1 -0.56047565  2.1988103     0
+2 -0.23017749  1.3124130     0
+3  1.55870831 -0.2651451     0
+4  0.07050839  0.5431941     0
+5  0.12928774 -0.4143399     0
+6  1.71506499 -0.4762469     0
+
+Column Names:
+[1] "height" "weight" "chole" 
+
+Number of Rows:
+[1] 200
+
+Number of Columns:
+[1] 3
+
+# apply upsampling on the PRESS data
+balanced_data = upsampling(PRESS, "chole")
+head(balanced_data)
+       height     weight chole
+1 -0.56047565  2.1988103     0
+2 -0.23017749  1.3124130     0
+3  1.55870831 -0.2651451     0
+4  0.07050839  0.5431941     0
+5  0.12928774 -0.4143399     0
+6  1.71506499 -0.4762469     0
+
+#compare the result and raw data
+table(PRESS$chole)
+
+  0   1 
+150  50 
+table(balanced_data$chole)
+
+  0   1 
+150 150 
+
+#standardize the height and weight column
+columns_to_standardize <- c("height", "weight")
+standardized_PRESS <- standardize(PRESS, columns_to_standardize)
+head(standardized_PRESS)
+       height     weight chole
+1 -0.58516612  2.1655224     0
+2 -0.23496233  1.2754946     0
+3  1.66173180 -0.3085246     0
+4  0.08384457  0.5031252     0
+5  0.14616629 -0.4583306     0
+6  1.82751140 -0.5204911     0
+
+#apply logistic regression on it
+coefficients = fit_logistic_regression_to_data(PRESS, 'chole', names(PRESS)[0:2])
+coefficients
+              [,1]
+        3.85564529
+height  0.06813449
+weight -0.10758936
+```
+
+## Getting help
+
+If you encounter a clear bug, please file an issue with a minimal
+reproducible example on
+[GitHub](https://github.com/tttiger/logistic). For questions and
+other discussion, please contact me via email(tiger8run@gmail.com).
+
+------------------------------------------------------------------------
+
+
+
+
+
