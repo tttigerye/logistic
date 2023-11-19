@@ -31,3 +31,12 @@ EPL <- data.frame(
 
 head(EPL)
 usethis::use_data(EPL, compress = 'xz')
+
+set.seed(123)
+PRESS <- data.frame(
+  height = rnorm(200),
+  weight = rnorm(200),
+  chole = as.factor(c(rep(0, 150), rep(1, 50))) # imbalanced dataset
+)
+table(PRESS$chole)
+usethis::use_data(PRESS, compress = 'xz')
