@@ -11,15 +11,11 @@
 #' @export
 #'
 #' @examples
-#' # Assuming 'my_data' is a dataset with an imbalanced binary target column named 'response'
-#' data <- data.frame(a = c(2.3, 1.5, 3.2, 2.1, 1.8, 2.4, 1.9, 3.1, 2.6, 2.0),
-#' b = c(1.1, 0.7, 1.3, 1.2, 0.9, 1.5, 1.0, 1.4, 1.6, 1.1),
-#' c = c(0.5, 0.6, 0.7, 0.4, 0.9, 0.3, 0.8, 0.5, 0.6, 0.7),
-#' d = c(3.0, 2.5, 3.5, 2.8, 3.1, 2.9, 3.2, 3.6, 2.7, 3.3),
-#' response = as.factor(c(1, 0, 1, 0, 1, 0, 1, 0, 1, 0))
-#' )
-#' balanced_data <- upsampling(my_data, "response")
-#' balanced_data
+#' # 'Education' is a dataset with an imbalanced binary target column named 'response'
+#' length(Education)
+#' balanced_data <- upsampling(Education, "response")
+#' head(balanced_data)
+#' length(balanced_data)
 #' # Now 'balanced_data' will have an equal number of instances for both classes in 'response' column
 upsampling <- function(data, class_col) {
   class_0 <- data[data[[class_col]] == 0, ]
@@ -36,3 +32,4 @@ upsampling <- function(data, class_col) {
     return(rbind(class_0_upsampled, class_1))
   }
 }
+
