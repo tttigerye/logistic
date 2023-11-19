@@ -4,7 +4,7 @@
 <!-- badges: start -->
 <!-- badges will be added here by usethis -->
 [![R-CMD-check](https://github.com/tttigerye/logistic/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/tttigerye/logistic/actions/workflows/R-CMD-check.yaml)
-[![Codecov test coverage](https://codecov.io/gh/tttigerye/logistic/branch/master/graph/badge.svg)](https://app.codecov.io/gh/tttigerye/logistic?branch=master)
+[![Codecov test coverage](https://codecov.io/gh/tttigerye/logistic/branch/master/graph/badge.svg)](https://app.codecov.io/gh/tttigerye/logistic?branch=master) 
 <!-- badges: end -->
 
 ## Overview
