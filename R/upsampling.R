@@ -19,7 +19,7 @@
 #' response = as.factor(c(1, 0, 1, 0, 1, 0, 1, 0, 1, 0))
 #' )
 #' balanced_data <- upsampling(my_data, "response")
-#'
+#' balanced_data
 #' # Now 'balanced_data' will have an equal number of instances for both classes in 'response' column
 upsampling <- function(data, class_col) {
   class_0 <- data[data[[class_col]] == 0, ]
