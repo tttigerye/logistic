@@ -1,8 +1,10 @@
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
 # Logistic 
 
+
 <!-- badges: start -->
+<!-- badges will be added here by usethis -->
+[![R-CMD-check](https://github.com/tttigerye/logistic/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/tttigerye/logistic/actions/workflows/R-CMD-check.yaml)
+<!-- badges: end -->
 
 ## Overview
 
