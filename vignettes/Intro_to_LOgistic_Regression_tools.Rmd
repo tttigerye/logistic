@@ -13,16 +13,30 @@ knitr::opts_chunk$set(
   comment = "#>"
 ) 
 ```
+This vignette helps user to understand what this R package does. This helps those familiar with base R understand better what logistic regression does, and shows users how you might need before apply logistyic regression. We'll start with a rough overview of the major functions. This is introduction to my fantastic package.
+
+# Overview
 
 ```{r setup}
 library(logistic)
 ```
-This is introduction to my fantastic package.
+
+### hello function
 
 I generally start with saying 'hello' in my package.
 ```{r}
 hello(whateveryouwanttosay)
 ```
+### Describe Data FUnction
+I developed this function and included it in my package to address a common challenge when applying logistic regression to our databases. Often, we may not have sufficient time to conduct a thorough Exploratory Data Analysis (EDA). Recognizing this, I believe a function that quickly generates a comprehensive overview of the dataset could be highly beneficial. This tool is designed to provide essential insights at a glance, streamlining the initial analysis phase and ensuring more informed decision-making, even when time constraints limit detailed EDA.
+
+```{r}
+head(EPL)
+describe_data(EPL)
+```
+As we can see, This function generate 'structure of the data', 'summary statistics', 'first few rows of data' and some basic information of the dataset.
+
+### Logistic Function
 
 Secondly, I add some of my useful function about logistic regression.
 
@@ -31,4 +45,22 @@ we use the logistic function: f(z) = $\frac{1}{1 + e^{-z}}$
 ```{r}
 logistic_function(2)
 ```
+```{r}
+logistic_function(4)
+```
+
+Basically this function just calculate the logistic function by formula.
+
+### Upsampling Function
+Using upsampling before applying logistic regression is often necessary in scenarios where the dataset is imbalanced, meaning that the classes are not represented equally. In such cases, the minority class (the class with fewer instances) can be underrepresented, leading to several issues.
+```{r}
+head(PRESS)
+balanced_data = upsampling(PRESS, "chole")
+```
+
+```{r}
+table(PRESS$chole)
+table(balanced_data$chole)
+```
+Now after applying this function, the data is comparably balanced.
 
