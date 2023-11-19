@@ -3,3 +3,4 @@
 export(fit_logistic_regression)
 export(hello)
 export(logistic_function)
+export(upsampling)
