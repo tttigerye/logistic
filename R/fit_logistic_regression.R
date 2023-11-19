@@ -26,7 +26,7 @@
 #' y <- rbinom(n, 1, p)
 
 #' # Fit the logistic regression model
-#' coefficients <- fit_logistic_regression(x, y)
+#' coefficients <- fit_logistic_regression(X, y)
 #' print(coefficients)
 #' #           [,1]
 #' #[1,]  0.1782793
