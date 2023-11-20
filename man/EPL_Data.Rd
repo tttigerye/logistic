@@ -1,8 +1,8 @@
 \name{EPL}
 \alias{EPL}
-\title{Title for EPL dataset}
+\title{English Premier League}
 \description{
-  A detailed description of the EPL dataset.
+  English Premier League dataset.
 }
 \usage{data(EPL)}
 \format{
