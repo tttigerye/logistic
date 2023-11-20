@@ -17,7 +17,13 @@ knitr::opts_chunk$set(
 
 This vignette helps user to understand what this R package does. This helps those familiar with base R understand better what logistic regression does, and shows users how you might need before apply logistyic regression. We'll start with a rough overview of the major functions. This is introduction to my fantastic package.
 
-# Overview
+## dataset in package
+1. Education: dataset that contains education information.
+2. EPL: The score table of English Premier League.
+3. PRESS: a Public Health data about cholesterol level.
+This data part will be helpful for user to experience the function in this package.
+
+## Overview
 
 ```{r setup}
 library(logistic)
